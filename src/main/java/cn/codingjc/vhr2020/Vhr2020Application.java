@@ -1,9 +1,11 @@
 package cn.codingjc.vhr2020;
 
+import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
+@MapperScan(basePackages = "cn.codingjc.vhr2020.model")
 public class Vhr2020Application {
 
     public static void main(String[] args) {
