@@ -5,7 +5,7 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-@MapperScan(basePackages = "cn.codingjc.vhr2020.model")
+@MapperScan(basePackages = "cn.codingjc.vhr2020.mapper")
 public class Vhr2020Application {
 
     public static void main(String[] args) {

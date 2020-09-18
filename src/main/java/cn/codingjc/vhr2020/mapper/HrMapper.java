@@ -14,4 +14,11 @@ public interface HrMapper {
     int updateByPrimaryKeySelective(Hr record);
 
     int updateByPrimaryKey(Hr record);
+
+    /**
+     * 根据用户名查询
+     * @param username
+     * @return
+     */
+    Hr loadUserByUsername(String username);
 }
