@@ -7,12 +7,35 @@
     <result column="path" property="path" jdbcType="VARCHAR" />
     <result column="component" property="component" jdbcType="VARCHAR" />
     <result column="name" property="name" jdbcType="VARCHAR" />
-    <result column="iconCls" property="iconcls" jdbcType="VARCHAR" />
-    <result column="keepAlive" property="keepalive" jdbcType="BIT" />
-    <result column="requireAuth" property="requireauth" jdbcType="BIT" />
-    <result column="parentId" property="parentid" jdbcType="INTEGER" />
+    <result column="iconCls" property="iconCls" jdbcType="VARCHAR" />
+    <result column="parentId" property="parentId" jdbcType="INTEGER" />
     <result column="enabled" property="enabled" jdbcType="BIT" />
+    <association property="meta" javaType="cn.codingjc.vhr2020.model.Meta">
+      <result column="keepAlive" property="keepAlive" jdbcType="BIT" />
+      <result column="requireAuth" property="requireAuth" jdbcType="BIT" />
+    </association>
   </resultMap>
+
+  <resultMap id="MenusByHrId" type="cn.codingjc.vhr2020.model.Menu" extends="BaseResultMap">
+    <collection property="children" ofType="cn.codingjc.vhr2020.model.Menu">
+      <id column="id1" property="id"/>
+      <result column="url1" property="url"/>
+      <result column="path1" property="path"/>
+      <result column="component1" property="component"/>
+      <result column="name1" property="name"/>
+      <result column="iconCls1" property="iconCls"/>
+      <result column="enabled1" property="enabled"/>
+      <association property="meta" javaType="cn.codingjc.vhr2020.model.Meta">
+        <result column="keepAlive1" property="keepAlive" jdbcType="BIT" />
+        <result column="requireAuth1" property="requireAuth" jdbcType="BIT" />
+      </association>
+    </collection>
+  </resultMap>
+
+  <select id="getMenusByHrId" resultMap="MenusByHrId">
+    select distinct m1.*,m2.id as id1, m2.url as url1, m2.path as path1, m2.component as component1, m2.iconCls as iconCls2, m2.keepAlive as keepAlibe2, m2.requireAuth as requireAuth2, m2.parentId as parentId2, m2.enabled as enabled2 from menu m1, menu m2, hr_role hr, menu_role mr where m2.parentId = m1.id and m2.id = mr.mid and mr.rid = hr.rid and hr.hrid = #{hrId} and m2.enabled = true
+  </select>
+
   <sql id="Base_Column_List" >
     id, url, path, component, name, iconCls, keepAlive, requireAuth, parentId, enabled
   </sql>

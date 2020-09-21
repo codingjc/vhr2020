@@ -2,6 +2,8 @@ package cn.codingjc.vhr2020.mapper;
 
 import cn.codingjc.vhr2020.model.Menu;
 
+import java.util.List;
+
 public interface MenuMapper {
     int deleteByPrimaryKey(Integer id);
 
@@ -14,4 +16,6 @@ public interface MenuMapper {
     int updateByPrimaryKeySelective(Menu record);
 
     int updateByPrimaryKey(Menu record);
+
+    List<Menu> getMenusByHrId(Integer hrId);
 }
