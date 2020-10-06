@@ -1,6 +1,9 @@
 package cn.codingjc.vhr2020.mapper;
 
 import cn.codingjc.vhr2020.model.Hr;
+import cn.codingjc.vhr2020.model.Role;
+
+import java.util.List;
 
 public interface HrMapper {
     int deleteByPrimaryKey(Integer id);
@@ -21,4 +24,11 @@ public interface HrMapper {
      * @return
      */
     Hr loadUserByUsername(String username);
+
+    /**
+     * 根据用户id查询角色
+     * @param id
+     * @return
+     */
+    List<Role> findRolesByHrId(Integer id);
 }

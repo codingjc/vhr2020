@@ -23,6 +23,16 @@ public class Menu {
 
     private List<Menu> children;
 
+    private List<Role> roles;
+
+    public List<Role> getRoles() {
+        return roles;
+    }
+
+    public void setRoles(List<Role> roles) {
+        this.roles = roles;
+    }
+
     public Integer getId() {
         return id;
     }
@@ -101,5 +111,22 @@ public class Menu {
 
     public void setEnabled(Boolean enabled) {
         this.enabled = enabled;
+    }
+
+    @Override
+    public String toString() {
+        return "Menu{" +
+                "id=" + id +
+                ", url='" + url + '\'' +
+                ", path='" + path + '\'' +
+                ", component='" + component + '\'' +
+                ", name='" + name + '\'' +
+                ", iconCls='" + iconCls + '\'' +
+                ", meta=" + meta +
+                ", parentId=" + parentId +
+                ", enabled=" + enabled +
+                ", children=" + children +
+                ", roles=" + roles +
+                '}';
     }
 }

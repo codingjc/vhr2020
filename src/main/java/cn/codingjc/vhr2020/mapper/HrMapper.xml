@@ -13,14 +13,20 @@
     <result column="userface" property="userface" jdbcType="VARCHAR" />
     <result column="remark" property="remark" jdbcType="VARCHAR" />
   </resultMap>
+
   <sql id="Base_Column_List" >
     id, name, phone, telephone, address, enabled, username, password, userface, remark
   </sql>
+
   <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
     select 
     <include refid="Base_Column_List" />
     from hr
     where id = #{id,jdbcType=INTEGER}
+  </select>
+
+  <select id="findRolesByHrId" resultType="cn.codingjc.vhr2020.model.Role">
+    select r.* from role r, hr_role hrr where r.id = hrr.rid and hrr.hrid = #{id}
   </select>
 
     <select id="loadUserByUsername" resultMap="BaseResultMap">

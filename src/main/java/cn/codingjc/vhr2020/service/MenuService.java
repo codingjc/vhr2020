@@ -27,4 +27,12 @@ public class MenuService {
         return menuMapper.getMenusByHrId(
                 ((Hr) SecurityContextHolder.getContext().getAuthentication().getPrincipal()).getId());
     }
+
+    /**
+     * 查询所有的菜单所具备的角色
+     * @return
+     */
+    public List<Menu> getAllMenusWithRoles() {
+        return menuMapper.getAllMenusWithRoles();
+    }
 }
