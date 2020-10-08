@@ -1,4 +1,4 @@
-package cn.codingjc.vhr2020.controller;
+package cn.codingjc.vhr2020.controller.config;
 
 import cn.codingjc.vhr2020.model.Menu;
 import cn.codingjc.vhr2020.service.MenuService;
