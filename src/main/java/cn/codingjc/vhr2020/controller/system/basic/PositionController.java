@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 /**
+ * 职位管理相关接口
  * @author coding_jc
  * @date 2020/10/7
  */
@@ -46,5 +47,13 @@ public class PositionController {
             return RespBean.ok("删除成功");
         }
         return RespBean.error("删除失败");
+    }
+
+    @DeleteMapping("/")
+    public RespBean deletePositionByIds(Integer[] ids){
+        if (positionService.deletePositionByIds(ids) == ids.length) {
+            return RespBean.ok("批量删除成功");
+        }
+        return RespBean.ok("批量删除失败");
     }
 }
