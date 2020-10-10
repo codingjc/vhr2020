@@ -1,6 +1,7 @@
 package cn.codingjc.vhr2020.mapper;
 
 import cn.codingjc.vhr2020.model.JobLevel;
+import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
 
@@ -18,4 +19,6 @@ public interface JobLevelMapper {
     int updateByPrimaryKey(JobLevel record);
 
     List<JobLevel> getAllJobLevels();
+
+    Integer deleteJobLevelByIds(@Param("ids") Integer[] ids);
 }

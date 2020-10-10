@@ -94,4 +94,11 @@
   <select id="getAllJobLevels" resultType="cn.codingjc.vhr2020.model.JobLevel">
     select * from joblevel
   </select>
+
+  <delete id="deleteJobLevelByIds">
+    delete from joblevel where id in
+    <foreach collection="ids" item="id" open="(" close=")" separator=",">
+      #{id}
+    </foreach>
+  </delete>
 </mapper>
