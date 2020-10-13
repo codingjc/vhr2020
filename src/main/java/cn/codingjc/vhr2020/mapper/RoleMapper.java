@@ -2,6 +2,8 @@ package cn.codingjc.vhr2020.mapper;
 
 import cn.codingjc.vhr2020.model.Role;
 
+import java.util.List;
+
 public interface RoleMapper {
     int deleteByPrimaryKey(Integer id);
 
@@ -14,4 +16,6 @@ public interface RoleMapper {
     int updateByPrimaryKeySelective(Role record);
 
     int updateByPrimaryKey(Role record);
+
+    List<Role> getAllRoles();
 }
