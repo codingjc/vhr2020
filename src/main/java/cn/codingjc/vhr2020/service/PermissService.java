@@ -21,4 +21,14 @@ public class PermissService {
         return roleMapper.getAllRoles();
     }
 
+    public Integer addRole(Role role) {
+        if (!role.getName().startsWith("ROLE_")) {
+           role.setName("ROlE_" + role.getName());
+        }
+        return roleMapper.insertSelective(role);
+    }
+
+    public Integer deleteRoleById(Integer rid) {
+        return roleMapper.deleteByPrimaryKey(rid);
+    }
 }

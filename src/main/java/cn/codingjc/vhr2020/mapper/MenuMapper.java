@@ -22,4 +22,6 @@ public interface MenuMapper {
     List<Menu> getAllMenusWithRoles();
 
     List<Menu> getAllMenus();
+
+    List<Integer> getMidByRid(Integer rid);
 }
