@@ -1,5 +1,6 @@
 package cn.codingjc.vhr2020.model;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Department {
@@ -15,7 +16,17 @@ public class Department {
 
     private Boolean isParent;
 
-    private List<Department> children;
+    private Integer result;
+
+    public Integer getResult() {
+        return result;
+    }
+
+    public void setResult(Integer result) {
+        this.result = result;
+    }
+
+    private List<Department> children = new ArrayList<>();
 
     public List<Department> getChildren() {
         return children;
