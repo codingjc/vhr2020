@@ -20,4 +20,6 @@ public interface DepartmentMapper {
     List<Department> getAllDepartmentsByParentId(int pid);
 
     void addDep(Department department);
+
+    void deleteDepById(Department department);
 }

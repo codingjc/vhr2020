@@ -76,11 +76,11 @@ public class Department {
         this.depPath = depPath;
     }
 
-    public Boolean getParent() {
+    public Boolean getIsParent() {
         return isParent;
     }
 
-    public void setParent(Boolean parent) {
+    public void setIsParent(Boolean parent) {
         isParent = parent;
     }
 }

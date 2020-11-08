@@ -18,6 +18,18 @@
     id, name, phone, telephone, address, enabled, username, password, userface, remark
   </sql>
 
+  <resultMap id="hrWithRole" type="cn.codingjc.vhr2020.model.Hr" extends="BaseResultMap">
+    <collection property="roles" ofType="cn.codingjc.vhr2020.model.Role">
+      <id property="id" column="rid"/>
+      <result property="name" column="rname"/>
+      <result property="nameZh" column="rnameZh"/>
+    </collection>
+  </resultMap>
+
+  <select id="getAllHrs" resultMap="hrWithRole">
+    select hr.*, r.id as rid, r.name as rname, r.nameZh as rnameZh from hr LEFT JOIN hr_role hrr on hr.id = hrr.hrid left join role r on hrr.rid = r.id where hr.id !=#{hrid}
+  </select>
+
   <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
     select 
     <include refid="Base_Column_List" />

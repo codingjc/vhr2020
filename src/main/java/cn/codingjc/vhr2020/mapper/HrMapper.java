@@ -31,4 +31,11 @@ public interface HrMapper {
      * @return
      */
     List<Role> findRolesByHrId(Integer id);
+
+    /**
+     * 获取所有操作(除当前登陆用户)
+     * @param id
+     * @return
+     */
+    List<Hr> getAllHrs(Integer id);
 }

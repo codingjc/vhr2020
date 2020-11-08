@@ -35,4 +35,12 @@ public class DepartmentService {
         department.setEnabled(true);
         departmentMapper.addDep(department);
     }
+
+    /**
+     * 删除部门
+     * @param department
+     */
+    public void deleteDepById(Department department) {
+        departmentMapper.deleteDepById(department);
+    }
 }

@@ -3,6 +3,7 @@ package cn.codingjc.vhr2020.service;
 import cn.codingjc.vhr2020.mapper.HrMapper;
 import cn.codingjc.vhr2020.model.Hr;
 import cn.codingjc.vhr2020.model.Role;
+import cn.codingjc.vhr2020.util.HrUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
@@ -29,5 +30,9 @@ public class HrService implements UserDetailsService {
         List<Role> roles = hrMapper.findRolesByHrId(hr.getId());
         hr.setRoles(roles);
         return hr;
+    }
+
+    public List<Hr> getAllHrs() {
+        return hrMapper.getAllHrs(HrUtil.getCurrentHr().getId());
     }
 }
