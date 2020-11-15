@@ -4,9 +4,7 @@ import cn.codingjc.vhr2020.model.Hr;
 import cn.codingjc.vhr2020.model.RespBean;
 import cn.codingjc.vhr2020.service.HrService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -20,5 +18,14 @@ public class HrController {
     @GetMapping("/")
     public List<Hr> getAllHrs(){
         return hrService.getAllHrs();
+    }
+
+    @PutMapping("/")
+    public RespBean updateHr(@RequestBody Hr hr){
+        if (hrService.updateHr(hr) == 1) {
+            return RespBean.ok("更新成功");
+        } else {
+            return RespBean.error("更新失败");
+        }
     }
 }
