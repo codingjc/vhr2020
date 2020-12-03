@@ -2,6 +2,7 @@ package cn.codingjc.vhr2020.mapper;
 
 import cn.codingjc.vhr2020.model.Hr;
 import cn.codingjc.vhr2020.model.Role;
+import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
 
@@ -37,5 +38,5 @@ public interface HrMapper {
      * @param id
      * @return
      */
-    List<Hr> getAllHrs(Integer id);
+    List<Hr> getAllHrs(@Param("hrid") Integer id, @Param("keyword") String keyword);
 }

@@ -27,7 +27,12 @@
   </resultMap>
 
   <select id="getAllHrs" resultMap="hrWithRole">
-    select hr.*, r.id as rid, r.name as rname, r.nameZh as rnameZh from hr LEFT JOIN hr_role hrr on hr.id = hrr.hrid left join role r on hrr.rid = r.id where hr.id !=#{hrid}
+    select hr.*, r.id as rid, r.name as rname, r.nameZh as rnameZh from hr
+    LEFT JOIN hr_role hrr on hr.id = hrr.hrid left join role r on hrr.rid = r.id where hr.id !=#{hrid}
+    <if test="keyword!=null">
+      and hr.name like concat('%', #{keyword}, '%')
+    </if>
+    order by hr.id
   </select>
 
   <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
