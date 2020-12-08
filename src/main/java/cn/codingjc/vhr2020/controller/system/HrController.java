@@ -48,4 +48,12 @@ public class HrController {
         return RespBean.error("更新失败");
 
     }
+
+    @DeleteMapping("/{hrid}")
+    public RespBean deleteHrById(@PathVariable("hrid") Integer hrid){
+        if (hrService.deleteHrById(hrid) == 1) {
+            return RespBean.ok("删除成功");
+        }
+        return RespBean.error("删除失败");
+    }
 }
