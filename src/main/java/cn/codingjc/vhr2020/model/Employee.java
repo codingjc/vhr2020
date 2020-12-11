@@ -1,5 +1,7 @@
 package cn.codingjc.vhr2020.model;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+
 import java.util.Date;
 
 public class Employee {
@@ -9,6 +11,7 @@ public class Employee {
 
     private String gender;
 
+    @JsonFormat(pattern = "yyyy-MM-dd")
     private Date birthday;
 
     private String idCard;
@@ -41,6 +44,7 @@ public class Employee {
 
     private String school;
 
+    @JsonFormat(pattern = "yyyy-MM-dd")
     private Date beginDate;
 
     private String workState;
@@ -49,12 +53,16 @@ public class Employee {
 
     private Double contractTerm;
 
+    @JsonFormat(pattern = "yyyy-MM-dd")
     private Date conversionTime;
 
+    @JsonFormat(pattern = "yyyy-MM-dd")
     private Date notworkDate;
 
+    @JsonFormat(pattern = "yyyy-MM-dd")
     private Date beginContract;
 
+    @JsonFormat(pattern = "yyyy-MM-dd")
     private Date endContract;
 
     private Integer workAge;

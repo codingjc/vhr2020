@@ -391,10 +391,16 @@
        j.id as jid, j.name as jname, pos.id as podid, pos.name as posname
        from employee e, nation n, politicsstatus p, department d, joblevel j, position pos
     where e.nationId = n.id and e.politicId = p.id and e.departmentId = d.id and e.jobLevelId = j.id and e.posId = pos.id
+    <if test="keyWord != null and keyWord != ''">
+        and e.name like concat('%', #{keyWord}, '%')
+    </if>
     limit #{page}, #{size};
   </select>
 
     <select id="getTotal" resultType="java.lang.Long">
     select count(*) from employee
+        <if test="keyWord != null and keyWord != ''">
+            where name like concat('%', #{keyWord}, '%')
+        </if>
   </select>
 </mapper>

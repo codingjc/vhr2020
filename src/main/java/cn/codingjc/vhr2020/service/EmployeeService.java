@@ -14,12 +14,16 @@ public class EmployeeService {
     @Autowired
     EmployeeMapper employeeMapper;
 
-    public RespPageBean getEmpployeeByPage(Integer page, Integer size) {
+    public RespPageBean getEmpployeeByPage(Integer page, Integer size, String keyWord) {
         if (page != null && size != null ) {
             page = (page -1) * size;
         }
-        List<Employee> employeeList = employeeMapper.getEmpployeeByPage(page, size);
-        long total = employeeMapper.getTotal();
+        List<Employee> employeeList = employeeMapper.getEmpployeeByPage(page, size, keyWord);
+        long total = employeeMapper.getTotal(keyWord);
         return new RespPageBean(total, employeeList);
+    }
+
+    public int addEmployee(Employee employee) {
+        return employeeMapper.insertSelective(employee);
     }
 }
