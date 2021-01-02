@@ -55,4 +55,8 @@
     set name = #{name,jdbcType=VARCHAR}
     where id = #{id,jdbcType=INTEGER}
   </update>
+
+  <select id="getAllPoliticsstatus" resultMap="BaseResultMap">
+    select * from politicsstatus;
+  </select>
 </mapper>

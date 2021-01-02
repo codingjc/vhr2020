@@ -21,4 +21,6 @@ public interface EmployeeMapper {
     List<Employee> getEmpployeeByPage(@Param("page") Integer page, @Param("size") Integer size, @Param("keyWord") String keyWord);
 
     long getTotal(String keyWord);
+
+    Integer maxWorkId();
 }

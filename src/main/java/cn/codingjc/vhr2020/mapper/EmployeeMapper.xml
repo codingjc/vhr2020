@@ -403,4 +403,8 @@
             where name like concat('%', #{keyWord}, '%')
         </if>
   </select>
+
+    <select id="maxWorkId" resultType="java.lang.Integer">
+        select max(workID) from employee;
+    </select>
 </mapper>
